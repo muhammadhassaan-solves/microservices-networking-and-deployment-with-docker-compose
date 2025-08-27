@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Microservices Lab - Frontend</title>
+</head>
+<body>
+<h1>Frontend</h1>
+<button onclick="checkBackend()">Check Backend Health</button>
+<div id="result"></div>
+<script>
+const BACKEND_URL = 'http://backend:3001';
+async function checkBackend() {
+    const res = await fetch(`${BACKEND_URL}/health`);
+    const data = await res.json();
+    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+}
+</script>
+</body>
+</html>
